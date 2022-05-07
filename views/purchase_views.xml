@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="order_inherit_purchase_order_tree_shipped" model="ir.ui.view">
+        <field name="name">purchase.shipped</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_kpis_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='invoice_status']" position="after">
+                <field name="is_shipped" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+
+
+    <record id="purchase_order_form_shipped" model="ir.ui.view">
+        <field name="name">purchase.shipped</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase_stock.purchase_order_view_form_inherit"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='is_shipped']" position="replace">
+                <field name="is_shipped" invisible="0"/>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>
